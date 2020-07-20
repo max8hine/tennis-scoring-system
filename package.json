@@ -1,0 +1,23 @@
+{
+  "name": "tennis-scoring-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/max8hine/tennis-scoring-system.git"
+  },
+  "keywords": [],
+  "author": "Max Ma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/max8hine/tennis-scoring-system/issues"
+  },
+  "homepage": "https://github.com/max8hine/tennis-scoring-system#readme",
+  "engines": {
+    "node": ">=12.18.2"
+  }
+}
