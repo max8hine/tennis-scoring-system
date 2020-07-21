@@ -25,8 +25,19 @@ class ScoreBehavior {
     const { p1, p2 } = this;
     const isPlayerExist = [p1, p2].includes(playerName);
     if (!isPlayerExist) return;
-    if (p1 === playerName) return (this.scoreP1 += 1);
-    if (p2 === playerName) return (this.scoreP2 += 1);
+    if (p1 === playerName) {
+      this.scoreP1 += 1;
+      return 
+    }
+    if (p2 === playerName) {
+      this.scoreP2 += 1;
+      return 
+    }
+  }
+  
+  resetScore() {
+    this.scoreP1 = 0;
+    this.scoreP2 = 0;
   }
 }
 
@@ -84,8 +95,8 @@ class TieBreakBehavior extends ScoreBehavior {
     const { scoreP1, scoreP2, p1, p2 } = this;
     if (scoreP1 >= 7 || scoreP2 >= 7) {
       const margin = scoreP1 - scoreP2;
-      if (Math.abs(margin) === 2) {
-        if (margin === 2) return p1;
+      if (Math.abs(margin) >= 2) {
+        if (margin > 0) return p1;
         return p2;
       }
     }
