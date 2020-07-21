@@ -1,11 +1,11 @@
-const behaviors = require('./behaviors');
+const behaviors = require("./behaviors");
 
 const {
   ScoreBehavior,
   PointBehavior,
   DeuceBehavior,
   TieBreakBehavior,
-} = behaviors
+} = behaviors;
 
 class Match extends ScoreBehavior {
   constructor(p1, p2) {
@@ -34,32 +34,39 @@ class Match extends ScoreBehavior {
 
   pointWonBy(playerName) {
     const { p1, p2 } = this;
+    // * Apply winning player name to the current Strategy
     this.scoreBehavior.pointWonBy(playerName);
+
+    // * Only PointBehavior can go to 'Deuce'
     if (
       this.scoreBehavior.name === "PointBehavior" &&
       this.scoreBehavior.isDeuce
     ) {
+      // * Update Strategy
       this.scoreBehavior = new DeuceBehavior(p1, p2);
       return;
     }
     if (this.scoreBehavior.winner) {
-      if ((playerName === p1)) this.scoreP1 += 1;
-      if ((playerName === p2)) this.scoreP2 += 1;
+      if (playerName === p1) this.scoreP1 += 1;
+      if (playerName === p2) this.scoreP2 += 1;
 
       if (this.isTieBreak) {
+        // * Update Strategy
         this.scoreBehavior = new TieBreakBehavior(p1, p2);
       } else {
+        // * Update Strategy
         this.scoreBehavior = new PointBehavior(p1, p2);
       }
     }
+    if (this.winner) this.resetScore();
   }
 
   score() {
     const { scoreP1, scoreP2, scoreBehavior } = this;
-    const setScore = `${scoreP1}-${scoreP2}`;
-    const gameScore = scoreBehavior.score;
-    if (gameScore === "") return setScore;
-    return `${setScore}, ${gameScore}`;
+    const scoreGames = `${scoreP1}-${scoreP2}`;
+    const scoreGame = scoreBehavior.score;
+    if (scoreGame === "") return scoreGames;
+    return `${scoreGames}, ${scoreGame}`;
   }
 }
 

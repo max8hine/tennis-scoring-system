@@ -1,4 +1,4 @@
-const Match = require("./index");
+const Match = require("./match");
 
 const p1 = "Player A";
 const p2 = "Player B";
