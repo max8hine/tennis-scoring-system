@@ -12,11 +12,11 @@
 1. Update `index.js`
 
 2. Run `npm start`, results will output in the terminal
-	 >  e.g. 
-	 > 0-0, 15-15
-	 > 0-0, 40-15
-	 > 0-0, Deuce
-	 > 0-0, Advantage player 1
+	 >  e.g. \
+	 > 0-0, 15-15 \
+	 > 0-0, 40-15 \
+	 > 0-0, Deuce \
+	 > 0-0, Advantage player 1 \
 	 > 1-0
 
 ## Testing
